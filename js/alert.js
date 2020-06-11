@@ -1,50 +1,27 @@
-let myCar = {
-    id: "bmw",
-    car: "bmw",
-    model: "F94",
-    color: "BLACK",
-    date: "2016",
-    horsepower: "400",
-    price: 11000
+class Car {
+    constructor(id, manufacturer , model , color , date , horsePower , price){
+        this.id = id;
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.color = color;
+        this.date = date;
+        this.horsePower = horsePower;
+        this.price = price;     
+    }
+    printPrice() {
+        console.log('price of this car is ${this.price}$');
+    }
+    printTitle(){
+        console.log('Title of this car is $(this.manufacturer)$');        
+    }
 }
 
-let myCar2 = {
-    id: "mercedes",
-    car: "MERCEDES",
-    model: "G",
-    color: "BLACK",
-    date: "2015",
-    horsepower: "320",
-    price: 18000
-}
+const toyota = new Car("toyota","Toyota","Prado","white","2013","240",5000);
+const audi = new Car("audi","Audi","TT","Grey","2018","280",10000);
+const mercedes = new Car("mercedes","Mercedes","G Class","Black","2015","320",18000);
+const bmw = new Car("bmw","BMW","F94","Black","2016","400",11000);
 
-let myCar3 = {
-    id: "audi",
-    car: "AUDI",
-    model: "TT",
-    color: "GREY",
-    date: "2018",
-    horsepower: "280",
-    price: 10000
-}
-
-let myCar4 = {
-    id: "toyota",
-    car: "TOYOTA",
-    model: "PRADO",
-    color: "white",
-    date: "2013",
-    horsepower: "240",
-    price: 5000
-}
-
-let loveCar = []
-
-loveCar.push(myCar);
-loveCar.push(myCar2);
-loveCar.push(myCar3);
-loveCar.push(myCar4);
-
+let cars = [toyota,audi,bmw,mercedes];
 
 //gamoaqvs informacia manqanaze gilakis daklikvisas
 function displayDescription(carid){
@@ -53,37 +30,42 @@ function displayDescription(carid){
     alert(description);
 }
 
-
 //edzebs manqanis monacemebs mocemuli id-is mixedvit
 function findCarById(carid){
-   for(i=0; i<loveCar.length; i++) {
-       if(loveCar[i].id === carid) {
-           return loveCar[i];
+   for(i=0; i<cars.length; i++) {
+       if(cars[i].id === carid) {
+           return cars[i];
        }
    }
 }
 
 //aformatebs da ekranze gamoaqvs agebuli infromaciebi
-function getDescription(myCar){
-    return  `ამ მანქანას აქვს შენდეგი მახასიათებლები: \n car: ${myCar.car}, \n color: ${myCar.color}, \n model: ${myCar.model}, \n date: ${myCar.date}, \n horsePower: ${myCar.horsepower}, \n price: ${myCar.price}`
+function getDescription(car){
+    return  `ამ მანქანას აქვს შენდეგი მახასიათებლები: 
+     car: ${car.manufacturer}, 
+     color: ${car.color}, 
+     model: ${car.model}, 
+     date: ${car.date}, 
+     horsePower: ${car.horsePower}, 
+     price: ${car.price}`
 }
 
 function giveAlert(){
     let input = parseInt(document.querySelector('#search').value);
     let stringInput = input.toString();
-    let searchedloveCar = [];
-    if(stringInput === "NaN"){
+    let searchedcars = [];
+    if(isNaN(inputedprice)){
         alert(`გთხოვთ შეიყვანოთ ფასი სწორ ფორმატში.`);
     }else{
-        searchedloveCar = [];
-        disableExpenciveCars(input, loveCar);
-        for(let i = 0; i < loveCar.length; i++){
-            if(input >= loveCar[i].price ){
-                searchedloveCar.push(`\n \n ამ ${input} ფასად შეგიძლიათ შეიძინოთ: \n სახელი: ${loveCar[i].car}, \n მოდელი: ${loveCar[i].model}, \n ფასი: ${loveCar[i].price}$`);
+        searchedcars = [];
+        disableExpenciveCars(input, cars);
+        for(let i = 0; i < cars.length; i++){
+            if(input >= cars[i].price ){
+                searchedcars.push(`\n \n ამ ${input} ფასად შეგიძლიათ შეიძინოთ: \n სახელი: ${cars[i].manufacturer}, \n მოდელი: ${cars[i].model}, \n ფასი: ${cars[i].price}$`);
             }
         }
-        if(searchedloveCar.length > 0){
-            alert(searchedloveCar);
+        if(searchedcars.length > 0){
+            alert(searchedcars);
         }else{
              alert(`სამუხაროდ ამ ფასში მანქანა ვერ მოიძებნა`);
         }
@@ -91,34 +73,18 @@ function giveAlert(){
 }
 
 
-
-function disableExpenciveCars(price, loveCar) {
-    let expenciveCars =[]
-        for(let i = 0; i < loveCar.length; i++) {
-            if(loveCar[i].price > price) {
-                expenciveCars.push(loveCar[i]);
-            }
-
-        for(let i = 0; i < expenciveCars.length; i++) {   
-           let currentElement  = document.getElementById(expenciveCars[i].id);
-           currentElement.querySelector(".button2").setAttribute("disabled", true);
-        }
-    }
-}
-
-let maxprice = 0;
-
 // EDZEBS YVELAZE DZVIR MANQANAS
 function searchMostExpensiveCar(){
+    let maxprice = 0;
     let count = 1;
-    for(let i = 0; i<loveCar.length;i++){
+    for(let i = 0; i<cars.length;i++){
         count++;//aketebs tvlas rata daabrunos max=is mxolod bolos migebuli mnishvneloba
 
-        if(maxprice < loveCar[i].price){
-            max = loveCar[i];//anichebs yvelaze dzviriani manqanis obieqts max-s
-            maxprice = loveCar[i].price;//anichebs fas cvlads rata sheadaros momdevno manqanis fasebs
+        if(maxprice < cars[i].price){
+            max = cars[i];//anichebs yvelaze dzviriani manqanis obieqts max-s
+            maxprice = cars[i].price;//anichebs fas cvlads rata sheadaros momdevno manqanis fasebs
         }
-        if(count===loveCar.length){
+        if(count===cars.length){
             return max;
         }
         
@@ -126,12 +92,11 @@ function searchMostExpensiveCar(){
 }
 
 
-
 //Gilakis dacherisas amoqmdebs funqcias romelic tovebs mxolod yvelaze dzvirian manqanas
 function displayMostExpensiveCar(){
     let mostexpensivecar = searchMostExpensiveCar().id;
-        for(i = 0; i < loveCar.length; i++){
-            let SelectAllCars = document.getElementById(loveCar[i].id);
+        for(i = 0; i < cars.length; i++){
+            let SelectAllCars = document.getElementById(cars[i].id);
             SelectAllCars.style.display = "none";
             if(mostexpensivecar === SelectAllCars.id){
                 SelectAllCars.style.display = "block";
@@ -139,25 +104,20 @@ function displayMostExpensiveCar(){
             
         }
 }
-// disable();
-
-
-
 
 // EDZEBS YVELAZE Iafasian MANQANAS
-
 function searchCheapestCar(){
     let count = 0;
     //shemogvaqvs yvelaze dzviriani manqana rom masze iafiani manqanebis Shedareba
     let minprice = searchMostExpensiveCar().price;
-    for(let i = 0; i<loveCar.length;i++){
+    for(let i = 0; i<cars.length;i++){
         
         count++;//aketebs tvlas rata daabrunos min=is mxolod bolos migebuli mnishvneloba
-        if(minprice > loveCar[i].price){
-            min = loveCar[i];//anichebs yvelaze dzviriani manqanis obieqts max-s
-            minprice = loveCar[i].price;//anichebs fas cvlads rata sheadaros momdevno manqanis fasebs);
+        if(minprice > cars[i].price){
+            min = cars[i];//anichebs yvelaze dzviriani manqanis obieqts max-s
+            minprice = cars[i].price;//anichebs fas cvlads rata sheadaros momdevno manqanis fasebs);
         }
-        if(count===loveCar.length){
+        if(count===cars.length){
             return min;
         }
         
@@ -167,8 +127,8 @@ function searchCheapestCar(){
 //GAMOAQVS YVELAZE IAFASIANI MANQANA
 function displayCheapestCar(){
     let cheapestcar = searchCheapestCar().id;
-    for(i = 0; i < loveCar.length; i++){
-        let SelectAllCars = document.getElementById(loveCar[i].id);
+    for(i = 0; i < cars.length; i++){
+        let SelectAllCars = document.getElementById(cars[i].id);
         SelectAllCars.style.display = "none";
         if(cheapestcar === SelectAllCars.id){
             SelectAllCars.style.display = "block";
@@ -180,8 +140,8 @@ function displayCheapestCar(){
 
 //Gamoaqvs yvela manqana
 function cancel(){
-    for(i = 0; i < loveCar.length; i++){
-        let SelectAllCars = document.getElementById(loveCar[i].id);
+    for(i = 0; i < cars.length; i++){
+        let SelectAllCars = document.getElementById(cars[i].id);
         SelectAllCars.style.display = "block";
 
         
@@ -192,16 +152,16 @@ function cancel(){
 
 function getAlertAboutAveragePrice() {
     let totalPrice;
-    for (let i = 0; i < loveCar.length; i++) {
-        totalPrice =+ loveCar[i].price;
+    for (let i = 0; i < cars.length; i++) {
+        totalPrice =+ cars[i].price;
         
     }
-    alert(`მანქანების საშუალო ღირებულება არის: ${totalPrice/loveCar.length}`);
+    alert(`მანქანების საშუალო ღირებულება არის: ${totalPrice/cars.length}`);
 }
 
 // Image Title
 
-for(let i = 0; i < loveCar.length; i++){
-    let imageTitle = document.getElementById(loveCar[i].id);
-    imageTitle.querySelector('p').innerHTML = `${loveCar[i].car} | ${loveCar[i].model}`;
+for(let i = 0; i < cars.length; i++){
+    let imageTitle = document.getElementById(cars[i].id);
+    imageTitle.querySelector('p').innerHTML = `${cars[i].manufacturer} | ${cars[i].model}`;
 }
