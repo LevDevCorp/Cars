@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>JS4</title>
+</head>
+<body class="index-body">
+<a class="loginlink" href="logInPage.html">Log In</a>
+
+<div class="container">
+<form class="searching" method="POST" name="priceform" onsubmit="return giveAlert()">
+    <input class="search" type="search" id="search"name="priceinput" name="search"placeholder="შეიყვანეთ ფასი">
+    <button class="clicker "type="button" id="button" onclick="getAlertAboutAveragePrice()">საშუალო ფასი</button>
+    <button class="clicker "type="button" id="button" onclick="displayCheapestCar()">ყველაზე იაფი</button>
+    <button class="clicker "type="button" id="button" onclick="displayMostExpensiveCar()">ყველაზე ძვირი</button>
+    <button class="clicker "type="button" id="button" onclick="cancel()">აჩვენე ყველა</button>
+    <input type="submit" class="clicker" value="ძებნა" name="submit">
+</form>
+</div>
+<div class="photos">
+    <div id="bmw" class="" onclick="displayDescription(this.id)">
+        <p></p>
+        <img class="images" src="images/bmw.jpg">
+        <button class="button2">Information</button>
+    </div>
+    <div id="mercedes" class="car1" onclick="displayDescription(this.id)">
+        <p></p>
+        <img class="images" src="images/mercedes.jpg">
+        <button class="button2">Information</button>
+    </div>
+    <div id="audi" class="car" onclick="displayDescription(this.id)">
+        <p></p>
+        <img class="images" src="images/audi.jpg">
+        <button class="button2">Information</button>
+    </div>
+    <div id="toyota" class="car" onclick="displayDescription(this.id)">
+        <p></p>
+        <img class="images" src="images/toyota.jpg">
+        <button class="button2">Information</button>
+    </div>
+</div>
+<script src="js/alert.js"></script>
+</body>
+</html>
