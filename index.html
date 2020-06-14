@@ -4,45 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
+    <!-- <link rel="stylesheet" href="css/reset.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>JS4</title>
+    <title>Car Store</title>
 </head>
-<body class="index-body">
-<a class="loginlink" href="logInPage.html">Log In</a>
+<body>
 
-<div class="container">
-<form class="searching" method="POST" name="priceform" onsubmit="return giveAlert()">
-    <input class="search" type="search" id="search"name="priceinput" name="search"placeholder="შეიყვანეთ ფასი">
-    <button class="clicker "type="button" id="button" onclick="getAlertAboutAveragePrice()">საშუალო ფასი</button>
-    <button class="clicker "type="button" id="button" onclick="displayCheapestCar()">ყველაზე იაფი</button>
-    <button class="clicker "type="button" id="button" onclick="displayMostExpensiveCar()">ყველაზე ძვირი</button>
-    <button class="clicker "type="button" id="button" onclick="cancel()">აჩვენე ყველა</button>
-    <input type="submit" class="clicker" value="ძებნა" name="submit">
+<nav class="navbar navbar-light bg-primary ">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <a class="text-dark" href="logInPage.html">Log In</a>
+        </a>        
+    </div>
+
+</nav>
+<div class="container mt-5">
+
+<form class="car_form">
+    <input class="car_searchfield" type="input" id="search" name="priceinput"placeholder="შეიყვანეთ ფასი">
+    <button class="bg-success" type="button" id="searchButton">ძებნა</button>
+    <button class="bg-danger" type="button" id="displayAvgPrice">საშუალო ფასი</button>
+    <button class="bg-warning" type="button" id="displayCheapestCar">ყველაზე იაფი</button>
+    <button class="bg-primary" type="button" id="displayMostExpensiveCar">ყველაზე ძვირი</button>
+    <button class="bg-secondary" type="button" id="cancel">აჩვენე ყველა</button>
+
 </form>
+
+
+    <div class="row mt-5 car_images">
+        <div id="bmw" class="car col-3" onclick="displayDescription(this.id)">
+            <p></p>
+            <img class="w-100" src="images/bmw.jpg">
+            <button class="btn btn-primary w-100">Information</button>
+        </div>
+        <div id="mercedes" class="car col-3" onclick="displayDescription(this.id)">
+            <p></p>
+            <img class="w-100" src="images/mercedes.jpg">
+            <button class="btn btn-primary w-100">Information</button>
+        </div>
+        <div id="audi" class="car col-3" onclick="displayDescription(this.id)">
+            <p></p>
+            <img class="w-100" src="images/audi.jpg">
+            <button class="btn btn-primary w-100">Information</button>
+        </div>
+        <div id="toyota" class="car col-3" onclick="displayDescription(this.id)">
+            <p></p>
+            <img class="w-100" src="images/toyota.jpg">
+            <button class="btn btn-primary w-100">Information</button>
+        </div>
+    </div>    
 </div>
-<div class="photos">
-    <div id="bmw" class="" onclick="displayDescription(this.id)">
-        <p></p>
-        <img class="images" src="images/bmw.jpg">
-        <button class="button2">Information</button>
-    </div>
-    <div id="mercedes" class="car1" onclick="displayDescription(this.id)">
-        <p></p>
-        <img class="images" src="images/mercedes.jpg">
-        <button class="button2">Information</button>
-    </div>
-    <div id="audi" class="car" onclick="displayDescription(this.id)">
-        <p></p>
-        <img class="images" src="images/audi.jpg">
-        <button class="button2">Information</button>
-    </div>
-    <div id="toyota" class="car" onclick="displayDescription(this.id)">
-        <p></p>
-        <img class="images" src="images/toyota.jpg">
-        <button class="button2">Information</button>
-    </div>
-</div>
-<script src="js/alert.js"></script>
+
+
+
+<script type="module" src="./js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,34 +1,17 @@
 //Task 6 -Login Page
-
-
-
-
-let user1 = {
-    username:'L.nats51@yahoo.com',
-    password:'123456789'
+class User {
+    constructor(username, password){
+        this.username = username;
+        this.password = password;
+    }
 }
 
-let user2 = {
-    username:'leonidas',
-    password:'222'
-}
+const user1 = new User('L.nats51@yahoo.com','123456789');
+const user2 = new User('Leonidas@yahoo.com','123456789');
+const user3 = new User('Jora@yahoo.com','123456789');
+const user4 = new User('Lev@yahoo.com','123456789');
 
-let user3 = {
-    username:'jora',
-    password:'123456789'
-}
-
-let user4 = {
-    username:'kalistrate',
-    password:'444'
-}
-
-
-let users = [];
-users.push(user1);
-users.push(user2);
-users.push(user3);
-users.push(user4);
+let users = [user1,user2,user3,user4];
 
 function getFoundUser(users,username){
     for(let i=0;i<users.length;i++){
@@ -56,8 +39,6 @@ function isEmailValid(email){
     return isEmailValid!==null;
 }
 
-
-
 function logIn(username,password){
     let isPasswordStrong = checkPasswordStrength(password);
     let possibleUser = getFoundUser(users, username);
@@ -80,7 +61,6 @@ function logIn(username,password){
     }
 }
 
-
 //logIn('jora','123456789');
 
 function loginSubmit(){
@@ -88,9 +68,6 @@ function loginSubmit(){
     let password = document.getElementById('password').value;
     logIn(username, password);
 }
-
-
-
 
 function showThePassword(){
     let password = document.getElementById('password');
