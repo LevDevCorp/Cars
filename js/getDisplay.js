@@ -7,10 +7,9 @@ import { cars } from './carStore.js';
 
 //Gamoaqvs sashualo pasi
 function displayAveragePrice() {
-    let totalPrice;
+    let totalPrice = 0;
     for (let i = 0; i < cars.length; i++) {
-        totalPrice =+ cars[i].price;
-        
+        totalPrice = totalPrice + cars[i].price;
     }
     alert(`მანქანების საშუალო ღირებულება არის: ${totalPrice/cars.length}`);
 }
