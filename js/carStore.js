@@ -1,10 +1,10 @@
 class Car {
-    constructor(id, manufacturer , model , color , date , horsePower , price){
+    constructor(id, manufacturer , model , color , releaseDate , horsePower , price){
         this.id = id;
         this.manufacturer = manufacturer;
         this.model = model;
         this.color = color;
-        this.date = date;
+        this.releaseDate = releaseDate;
         this.horsePower = horsePower;
         this.price = price;     
     }
@@ -21,6 +21,6 @@ const audi = new Car("audi","Audi","TT","Grey","2018","280",10000);
 const mercedes = new Car("mercedes","Mercedes","G Class","Black","2015","320",18000);
 const bmw = new Car("bmw","BMW","F94","Black","2016","400",11000);
 
-let cars = [toyota,audi,bmw,mercedes];
+let cars = [bmw,mercedes,audi,toyota];
 export { cars,toyota ,audi ,mercedes,bmw }
 

@@ -89,6 +89,18 @@ function cancel(){
     }
 }
 
+//gamoqavs manqanis informacia gilakze click-is ganoxorcielebissas
+function displayDescription(id){
+    alert("Brand: " + cars[id].manufacturer + "\n" +
+        "Model: " + cars[id].model + "\n" + 
+        "Price: " + cars[id].price + "\n" + 
+        "Color: " + cars[id].color + "\n" + 
+        "Release: " + cars[id].releaseDate + "\n" + 
+        "Horsepower: " + cars[id].horsePower  
+    );
+}
+
+
 // gamoaqvs manqanis saxelebi
 (function displayCarTitle(){
     for(let i = 0; i < cars.length; i++){
@@ -98,4 +110,4 @@ function cancel(){
 }())
 
 
-export {displayAveragePrice, cancel , displayMostExpensiveCar, displayCheapestCar, searchMostExpensiveCar ,searchCheapestCar};
+export {displayAveragePrice, cancel , displayMostExpensiveCar, displayCheapestCar, searchMostExpensiveCar ,searchCheapestCar, displayDescription};
